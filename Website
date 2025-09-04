@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Col<span style="color:white">é</span>ga – Seu app universitário</title>
+  <meta name="description" content="Coléga é um aplicativo simples e rápido para estudantes. Consulte o cardápio do RU, ferramentas de presença e muito mais." />
+  <meta name="theme-color" content="#9333EA" />
+  <meta property="og:title" content="Coléga – Seu app universitário" />
+  <meta property="og:description" content="Consulte o RU, acompanhe presença e organize sua rotina acadêmica." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/og-image.png" />
+  <meta property="og:url" content="https://YOUR_GITHUB_USERNAME.github.io/colega" />
+  <link rel="icon" href="assets/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0b1220;
+      --panel-dark: #0f172a;
+      --text-dark: #e2e8f0;
+      --muted-dark: #94a3b8;
+      --bg-light: #f9fafb;
+      --panel-light: #ffffff;
+      --text-light: #1f2937;
+      --muted-light: #6b7280;
+      --accent: #9333EA;
+      --shadow: 0 10px 30px rgba(2,6,23,.15);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin:0; padding:0; font-family: 'Questrial', sans-serif; background:var(--bg-dark); color:var(--text-dark); transition:background .3s, color .3s; }
+    body.light { background:var(--bg-light); color:var(--text-light); }
+    a{ color:var(--accent); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 24px; }
+    header { position: sticky; top:0; z-index: 40; backdrop-filter: saturate(180%) blur(6px); background: rgba(10,15,28,.6); border-bottom: 1px solid rgba(148,163,184,.15); }
+    body.light header { background: rgba(255,255,255,.8); border-bottom: 1px solid rgba(0,0,0,.05); }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap:16px; padding: 14px 24px; }
+    .brand { display:flex; gap:12px; align-items:center; }
+    .brand img { width:36px; height:36px; border-radius:10px; }
+    .brand .t { font-weight:700; letter-spacing:.2px; }
+    .cta { display:flex; gap:10px; flex-wrap:wrap; }
+    .btn { display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:12px; font-weight:600; background:var(--panel-dark); border:1px solid rgba(148,163,184,.25); color:var(--text-dark); box-shadow:var(--shadow); transition: all .2s; }
+    body.light .btn { background:var(--panel-light); color:var(--text-light); border:1px solid rgba(0,0,0,.1); }
+    .btn.primary{ background: var(--accent); color:#fff; border:none; }
+    .btn:hover { filter: brightness(1.05); transform: translateY(-1px); }
+    .hero { display:grid; grid-template-columns: 1fr; gap: 28px; align-items:center; padding: 48px 24px; }
+    .hero h1 { font-size: clamp(28px, 5vw, 48px); line-height:1.05; margin:0 0 12px; }
+    .hero p { color: var(--muted-dark); font-size: clamp(14px, 2.4vw, 18px); margin: 0 0 24px; }
+    body.light .hero p { color: var(--muted-light); }
+    .section { padding: 56px 24px; }
+    .section h2{ font-size: clamp(22px, 4vw, 34px); margin:0 0 18px; }
+    .grid { display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    @media (max-width: 900px){ .grid{ grid-template-columns: 1fr; } }
+    .card { background: var(--panel-dark); border:1px solid rgba(148,163,184,.18); border-radius: 16px; padding: 16px; box-shadow: var(--shadow); }
+    .card h3 { margin: 4px 0 8px; font-size: 18px; }
+    .card p { margin:0; color: var(--muted-dark); }
+    body.light .card { background: var(--panel-light); border:1px solid rgba(0,0,0,.05); }
+    body.light .card p { color: var(--muted-light); }
+    .carousel { position: relative; overflow: hidden; border-radius: 16px; border:1px solid rgba(148,163,184,.15); box-shadow: var(--shadow); }
+    .carousel-track { display:flex; transition: transform .5s ease; }
+    .slide { min-width:100%; background:transparent; display:flex; align-items:center; justify-content:center; }
+    .slide img{ max-height:150px; object-fit:contain; }
+    .dots { display:flex; gap: 8px; justify-content:center; margin-top: 12px; }
+    .dot { width:10px; height:10px; border-radius:10px; background: rgba(148,163,184,.3); border:none; }
+    .dot[aria-current="true"]{ background: var(--accent); }
+    details.policy { background: rgba(15,23,42,.7); border:1px solid rgba(148,163,184,.25); border-radius: 16px; padding: 16px; }
+    body.light details.policy { background:#f3f4f6; border:1px solid rgba(0,0,0,.1); }
+    footer { border-top:1px solid rgba(148,163,184,.15); padding: 28px 24px; text-align:center; color: var(--muted-dark); }
+    body.light footer { border-top:1px solid rgba(0,0,0,.1); color: var(--muted-light); }
+    .toggle-mode { cursor:pointer; font-size:14px; margin-left:8px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav wrap">
+      <div class="brand">
+        <img src="assets/logo.png" alt="Logo do Coléga" />
+        <div class="t">Col<span style="color:white">é</span>ga</div>
+      </div>
+      <nav class="cta">
+        <a class="btn" href="#features">Funcionalidades</a>
+        <a class="btn" href="#universities">Universidades</a>
+        <a class="btn" href="#privacy">Privacidade</a>
+        <span class="toggle-mode" onclick="toggleMode()">🌓</span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <h1>Col<span style="color:white">é</span>ga: Seu assistente rápido para a vida universitária</h1>
+        <p>Coléga é um app ágil feito para estudantes. Consulte o cardápio do RU, use utilitários leves para aulas e campus, e siga seu dia sem complicações.</p>
+        <div class="cta">
+          <a class="btn primary" href="https://apps.apple.com/app/ID-HERE" target="_blank">Baixar no iOS</a>
+          <a class="btn primary" href="https://play.google.com/store/apps/details?id=PACKAGE.HERE" target="_blank">Baixar no Android</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <h2>Funcionalidades</h2>
+      <div class="grid">
+        <div class="card"><h3>Cardápio do RU</h3><p>Veja as refeições do dia de forma rápida e simples.</p></div>
+        <div class="card"><h3>Presenças</h3><p>Ferramentas leves para acompanhar presença e rotina acadêmica.</p></div>
+        <div class="card"><h3>Rápido e leve</h3><p>Interface mínima, navegação fluida e tamanho pequeno.</p></div>
+        <div class="card"><h3>Privacidade</h3><p>Sem coleta desnecessária de dados. Veja a política completa abaixo.</p></div>
+        <div class="card"><h3>Multiuniversitário</h3><p>Funcionalidades focadas em várias universidades brasileiras.</p></div>
+        <div class="card"><h3>Gratuito</h3><p>Uso gratuito. Anúncios leves opcionais para sustentar o app.</p></div>
+      </div>
+    </section>
+
+    <section id="universities" class="section">
+      <h2>Disponível nestas Universidades</h2>
+      <div class="carousel">
+        <div class="carousel-track" id="uniCarouselTrack">
+          <div class="slide"><img src="assets/universities/ufpr.png" alt="UFPR"></div>
+          <div class="slide"><img src="assets/universities/utfpr.png" alt="UTFPR"></div>
+          <div class="slide"><img src="assets/universities/unicamp.png" alt="Unicamp"></div>
+          <div class="slide"><img src="assets/universities/usp.png" alt="USP"></div>
+        </div>
+      </div>
+      <div class="dots" id="uniDots"></div>
+    </section>
+
+    <section id="about" class="section">
+      <h2>Sobre & Contato</h2>
+      <p><strong>Coléga</strong> é desenvolvido por Felipe Kleine Albers. Para dúvidas, feedback ou parcerias, escreva para <a href="mailto:colegaapps@gmail.com">colegaapps@gmail.com</a>.</p>
+      <p>Instagram: <a href="https://instagram.com/YOUR_HANDLE" target="_blank">@YOUR_HANDLE</a></p>
+    </section>
+
+    <section id="privacy" class="section">
+      <h2>Política de Privacidade</h2>
+      <p><a href="https://YOUR_PRIVACY_POLICY_URL" target="_blank">Leia a política de privacidade completa aqui</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© <span id="y"></span> Coléga. Feito com carinho para estudantes.</div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    const uniTrack = document.getElementById('uniCarouselTrack');
+    const uniDots = document.getElementById('uniDots');
+    const uniSlides = uniTrack.children.length;
+    let uniIndex = 0;
+    for(let i=0;i<uniSlides;i++){
+      const b = document.createElement('button');
+      b.className='dot';
+      if(i===0) b.setAttribute('aria-current','true');
+      b.dataset.i=i;
+      b.onclick=()=>goUni(i);
+      uniDots.appendChild(b);
+    }
+    function goUni(i){
+      uniIndex=i;
+      uniTrack.style.transform = `translateX(${-i*100}%)`;
+      Array.from(uniDots.children).forEach((d,di)=> d.setAttribute('aria-current', di===i?'true':'false'));
+    }
+    setInterval(()=> goUni((uniIndex+1)%uniSlides), 4000);
+
+    function toggleMode(){
+      document.body.classList.toggle('light');
+    }
+  </script>
+</body>
+</html>
+
+
