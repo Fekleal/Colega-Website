@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Col<span style="color:white">é</span>ga – Seu app universitário</title>
-  <meta name="description" content="Coléga é um aplicativo simples e rápido para estudantes. Consulte o cardápio do RU, ferramentas de presença e controle de avaliações." />
+  <title>Col<span style="color:#fff">é</span>ga — Seu app universitário</title>
+  <meta name="description" content="Coléga é um aplicativo rápido e leve para estudantes: cardápio do RU, utilitários para aulas e organização da rotina." />
   <meta name="theme-color" content="#9333EA" />
-  <meta property="og:title" content="Coléga – Seu app universitário" />
-  <meta property="og:description" content="Consulte o RU, acompanhe presença e organize sua rotina acadêmica." />
+  <meta property="og:title" content="Coléga — Seu app universitário" />
+  <meta property="og:description" content="Consulte o RU, acompanhe o dia a dia acadêmico e mantenha tudo simples." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/og-image.png" />
-  <meta property="og:url" content="https://YOUR_GITHUB_USERNAME.github.io/colega" />
+  <meta property="og:url" content="https://fekleal.github.io/Colega-Website/" />
   <link rel="icon" href="assets/favicon.png" />
   <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
   <style>
@@ -20,88 +20,107 @@
       --text-dark: #e2e8f0;
       --muted-dark: #94a3b8;
       --accent: #9333EA;
+      --accent-press: #7e22ce;
+      --ring: rgba(147, 51, 234, .45);
       --shadow: 0 10px 30px rgba(2,6,23,.15);
+      --border: rgba(148,163,184,.18);
     }
-    * { box-sizing: border-box; }
-    html, body { margin:0; padding:0; font-family: 'Questrial', sans-serif; background:var(--bg-dark); color:var(--text-dark); }
+    *{ box-sizing: border-box;}
+    html, body{ margin:0; padding:0; font-family:'Questrial',system-ui,-apple-system,Segoe UI,Roboto,sans-serif; background:var(--bg-dark); color:var(--text-dark); }
+    img{ max-width:100%; display:block; }
     a{ color:var(--accent); text-decoration:none; font-weight:600; }
     a:hover{ text-decoration:underline; }
-    .wrap { max-width: 1080px; margin: 0 auto; padding: 24px; }
-    header { position: sticky; top:0; z-index: 40; backdrop-filter: saturate(180%) blur(6px); background: rgba(10,15,28,.6); border-bottom: 1px solid rgba(148,163,184,.15); }
-    .nav { display:flex; align-items:center; justify-content:space-between; gap:16px; padding: 14px 24px; }
-    .brand { display:flex; gap:12px; align-items:center; }
-    .brand img { width:36px; height:36px; border-radius:10px; }
-    .brand .t { font-weight:700; letter-spacing:.2px; }
-    .cta { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
 
-    .accent-e { color:#fff; }
+    .wrap{ max-width:1080px; margin:0 auto; padding:24px; }
 
-    .hero { display:grid; grid-template-columns: 1fr; gap: 28px; align-items:center; padding: 48px 24px; }
-    .hero h1 { font-size: clamp(28px, 5vw, 48px); line-height:1.05; margin:0 0 12px; }
-    .hero p { color: var(--muted-dark); font-size: clamp(14px, 2.4vw, 18px); margin: 0 0 24px; }
-    .section { padding: 56px 24px; }
-    .section h2{ font-size: clamp(22px, 4vw, 34px); margin:0 0 18px; }
-    .grid { display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-    @media (max-width: 900px){ .grid{ grid-template-columns: 1fr; } }
-    .card { background: var(--panel-dark); border:1px solid rgba(148,163,184,.18); border-radius: 16px; padding: 16px; box-shadow: var(--shadow); }
-    .card h3 { margin: 4px 0 8px; font-size: 18px; }
-    .card p { margin:0; color: var(--muted-dark); }
-    .carousel { position: relative; overflow: hidden; border-radius: 16px; border:1px solid rgba(148,163,184,.15); box-shadow: var(--shadow); }
-    .carousel-track { display:flex; transition: transform .5s ease; }
-    .slide { min-width:100%; background:transparent; display:flex; align-items:center; justify-content:center; }
-    .slide img{ max-height:150px; object-fit:contain; }
-    .dots { display:flex; gap: 8px; justify-content:center; margin-top: 12px; }
-    .dot { width:10px; height:10px; border-radius:10px; background: rgba(148,163,184,.3); border:none; }
-    .dot[aria-current="true"]{ background: var(--accent); }
-    footer { border-top:1px solid rgba(148,163,184,.15); padding: 28px 24px; text-align:center; color: var(--muted-dark); }
+    header{ position:sticky; top:0; z-index:40; backdrop-filter:saturate(180%) blur(6px); background:rgba(10,15,28,.6); border-bottom:1px solid var(--border); }
+    .nav{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 24px; }
+    .brand{ display:flex; gap:12px; align-items:center; }
+    .brand img{ width:40px; height:40px; border-radius:10px; }
+    .brand .t{ font-weight:700; letter-spacing:.2px; }
+
+    /* Buttons */
+    .cta{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+    .btn{ display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:12px 16px; border-radius:12px; font-weight:700; background:var(--panel-dark); color:var(--text-dark); border:1px solid var(--border); box-shadow:var(--shadow); transition:transform .12s ease, filter .12s ease, background .12s ease; }
+    .btn.primary{ background:var(--accent); border:none; color:#fff; }
+    .btn:hover{ filter:brightness(1.06); transform:translateY(-1px); }
+    .btn:active{ transform:translateY(0); filter:brightness(0.98); background:var(--accent-press); }
+    .btn:focus-visible{ outline:0; box-shadow:0 0 0 4px var(--ring); }
+
+    /* Sections */
+    .hero{ display:grid; grid-template-columns:1fr; gap:28px; align-items:center; padding:56px 24px 24px; }
+    .hero h1{ font-size:clamp(28px,5vw,48px); line-height:1.05; margin:0 0 12px; }
+    .hero p{ color:var(--muted-dark); font-size:clamp(14px,2.4vw,18px); margin:0 0 24px; max-width:70ch; }
+
+    .section{ padding:48px 24px; }
+    .section h2{ font-size:clamp(22px,4vw,32px); margin:0 0 16px; }
+
+    /* Card / panel */
+    .panel{ background:var(--panel-dark); border:1px solid var(--border); border-radius:16px; padding:18px; box-shadow:var(--shadow); }
+
+    /* Carousel (single logo case) */
+    .carousel{ position:relative; overflow:hidden; border-radius:16px; border:1px solid var(--border); box-shadow:var(--shadow); background:var(--panel-dark); }
+    .carousel-track{ display:flex; align-items:center; justify-content:center; padding:24px; }
+    .slide{ min-width:100%; display:flex; align-items:center; justify-content:center; }
+    .slide img{ max-height:140px; object-fit:contain; filter:drop-shadow(0 8px 18px rgba(0,0,0,.25)); }
+
+    footer{ border-top:1px solid var(--border); padding:28px 24px; text-align:center; color:var(--muted-dark); }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .btn{ transition:none; }
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="nav wrap">
-      <div class="brand">
+      <div class="brand" aria-label="Coléga">
         <img src="assets/logo.png" alt="Logo do Coléga" />
-        <div class="t">Col<span class="accent-e">é</span>ga</div>
+        <div class="t">Col<span style="color:#fff">é</span>ga</div>
       </div>
     </div>
   </header>
 
   <main class="wrap">
-    <section class="hero">
+    <section class="hero" aria-labelledby="hero-title">
       <div>
-        <h1>Col<span class="accent-e">é</span>ga: Seu assistente rápido para a vida universitária</h1>
-        <p>Coléga é um app ágil feito para estudantes. Consulte o cardápio do RU, use utilitários leves para aulas e campus, e siga seu dia sem complicações.</p>
-        <div class="cta">
-          <a class="btn primary" href="https://apps.apple.com/br/app/col%C3%A9ga/id6751823852?l=en-GB" target="_blank">Baixar no iOS</a>
-          <a class="btn primary" href="https://play.google.com/store/apps/details?id=PACKAGE.HERE" target="_blank">Baixar no Android</a>
+        <h1 id="hero-title">Col<span style="color:#fff">é</span>ga: seu assistente para a vida universitária</h1>
+        <p>Coléga é um app ágil pensado para estudantes. Consulte o cardápio do RU, acesse utilitários para as aulas e mantenha sua rotina acadêmica simples.</p>
+        <div class="cta" role="group" aria-label="Baixar o aplicativo">
+          <a class="btn primary" href="https://apps.apple.com/br/app/col%C3%A9ga/id6751823852?l=en-GB" target="_blank" rel="noopener">Baixar no iOS</a>
+          <a class="btn primary" href="https://play.google.com/store/apps/details?id=PACKAGE.HERE" target="_blank" rel="noopener">Baixar no Android</a>
         </div>
       </div>
     </section>
 
-    <section id="universities" class="section">
-      <h2>Disponível nestas Universidades</h2>
-      <div class="carousel">
-        <div class="carousel-track" id="uniCarouselTrack">
-          <div class="slide"><img src="assets/universities/ufpr.png" alt="UFPR"></div>
+    <section id="universities" class="section" aria-labelledby="uni-title">
+      <h2 id="uni-title">Disponível na UFPR</h2>
+      <div class="carousel" aria-label="Universidades parceiras">
+        <div class="carousel-track">
+          <div class="slide"><img src="assets/universities/ufpr.png" alt="Logo da UFPR"></div>
         </div>
       </div>
-      <div class="dots" id="uniDots"></div>
     </section>
 
-    <section id="about" class="section">
-      <h2>Sobre & Contato</h2>
-      <p><strong>Coléga</strong> é desenvolvido por Felipe Kleine Albers. Para dúvidas, feedback ou parcerias, escreva para <a href="mailto:colegaapps@gmail.com">colegaapps@gmail.com</a>.</p>
-      <p>Instagram: <a href="https://www.instagram.com/colegaapp/" target="_blank">@colegaapp</a></p>
+    <section id="about" class="section" aria-labelledby="about-title">
+      <h2 id="about-title">Sobre & Contato</h2>
+      <div class="panel">
+        <p><strong>Coléga</strong> é desenvolvido por Felipe Kleine Albers. Para dúvidas, feedback ou parcerias, escreva para <a href="mailto:colegaapps@gmail.com">colegaapps@gmail.com</a>.</p>
+        <p>Instagram: <a href="https://www.instagram.com/colegaapp/" target="_blank" rel="noopener">@colegaapp</a></p>
+      </div>
     </section>
 
-    <section id="privacy" class="section">
-      <h2>Política de Privacidade</h2>
-      <p><a href="https://fekleal.github.io/Colega-Privacy-/"_blank">Leia a política de privacidade completa aqui</a></p>
+    <section id="privacy" class="section" aria-labelledby="privacy-title">
+      <h2 id="privacy-title">Política de Privacidade</h2>
+      <div class="panel">
+        <p><a href="https://fekleal.github.io/Colega-Privacy-/" target="_blank" rel="noopener">Leia a política de privacidade completa aqui</a></p>
+      </div>
     </section>
   </main>
 
   <footer>
-    <div class="wrap">© <span id="y"></span> Coléga. Feito para Estudantes.</div>
+    <div class="wrap">© <span id="y"></span> Coléga. Feito para estudantes.</div>
   </footer>
 
   <script>
