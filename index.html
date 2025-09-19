@@ -3,129 +3,210 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Col<span style="color:#fff">é</span>ga — Seu app universitário</title>
+  <title>Col<span class="accent-contrast">é</span>ga — Seu app universitário</title>
   <meta name="description" content="Coléga é um aplicativo rápido e leve para estudantes: cardápio do RU, utilitários para aulas e organização da rotina." />
-  <meta name="theme-color" content="#9333EA" />
+  <link rel="canonical" href="https://fekleal.github.io/Colega-Website/" />
+  <meta name="theme-color" content="#0b1220" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+
+  <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Coléga — Seu app universitário" />
   <meta property="og:description" content="Consulte o RU, acompanhe o dia a dia acadêmico e mantenha tudo simples." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/og-image.png" />
   <meta property="og:url" content="https://fekleal.github.io/Colega-Website/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Icons -->
   <link rel="icon" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+
   <style>
-    :root {
-      --bg-dark: #0b1220;
-      --panel-dark: #0f172a;
-      --text-dark: #e2e8f0;
-      --muted-dark: #94a3b8;
-      --accent: #9333EA;
-      --accent-press: #7e22ce;
-      --ring: rgba(147, 51, 234, .45);
-      --shadow: 0 10px 30px rgba(2,6,23,.15);
+    :root{
+      --bg: #0b1220;
+      --bg-elev: #0f172a;
+      --txt: #e2e8f0;
+      --muted: #94a3b8;
       --border: rgba(148,163,184,.18);
+      --ring: rgba(147,51,234,.45);
+      --accent: #9333EA;
+      --accent-press:#7e22ce;
+      --shadow: 0 10px 30px rgba(2,6,23,.15);
+      --radius: 16px;
     }
-    *{ box-sizing: border-box;}
-    html, body{ margin:0; padding:0; font-family:'Questrial',system-ui,-apple-system,Segoe UI,Roboto,sans-serif; background:var(--bg-dark); color:var(--text-dark); }
-    img{ max-width:100%; display:block; }
-    a{ color:var(--accent); text-decoration:none; font-weight:600; }
-    a:hover{ text-decoration:underline; }
-
-    .wrap{ max-width:1080px; margin:0 auto; padding:24px; }
-
-    header{ position:sticky; top:0; z-index:40; backdrop-filter:saturate(180%) blur(6px); background:rgba(10,15,28,.6); border-bottom:1px solid var(--border); }
-    .nav{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 24px; }
-    .brand{ display:flex; gap:12px; align-items:center; }
-    .brand img{ width:40px; height:40px; border-radius:10px; }
-    .brand .t{ font-weight:700; letter-spacing:.2px; }
-
-    /* Buttons */
-    .cta{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
-    .btn{ display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:12px 16px; border-radius:12px; font-weight:700; background:var(--panel-dark); color:var(--text-dark); border:1px solid var(--border); box-shadow:var(--shadow); transition:transform .12s ease, filter .12s ease, background .12s ease; }
-    .btn.primary{ background:var(--accent); border:none; color:#fff; }
-    .btn:hover{ filter:brightness(1.06); transform:translateY(-1px); }
-    .btn:active{ transform:translateY(0); filter:brightness(0.98); background:var(--accent-press); }
-    .btn:focus-visible{ outline:0; box-shadow:0 0 0 4px var(--ring); }
-
-    /* Sections */
-    .hero{ display:grid; grid-template-columns:1fr; gap:28px; align-items:center; padding:56px 24px 24px; }
-    .hero h1{ font-size:clamp(28px,5vw,48px); line-height:1.05; margin:0 0 12px; }
-    .hero p{ color:var(--muted-dark); font-size:clamp(14px,2.4vw,18px); margin:0 0 24px; max-width:70ch; }
-
-    .section{ padding:48px 24px; }
-    .section h2{ font-size:clamp(22px,4vw,32px); margin:0 0 16px; }
-
-    /* Card / panel */
-    .panel{ background:var(--panel-dark); border:1px solid var(--border); border-radius:16px; padding:18px; box-shadow:var(--shadow); }
-
-    /* Carousel (single logo case) */
-    .carousel{ position:relative; overflow:hidden; border-radius:16px; border:1px solid var(--border); box-shadow:var(--shadow); background:var(--panel-dark); }
-    .carousel-track{ display:flex; align-items:center; justify-content:center; padding:24px; }
-    .slide{ min-width:100%; display:flex; align-items:center; justify-content:center; }
-    .slide img{ max-height:140px; object-fit:contain; filter:drop-shadow(0 8px 18px rgba(0,0,0,.25)); }
-
-    footer{ border-top:1px solid var(--border); padding:28px 24px; text-align:center; color:var(--muted-dark); }
-
-    /* Reduced motion */
-    @media (prefers-reduced-motion: reduce){
-      .btn{ transition:none; }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg: #ffffff;
+        --bg-elev: #f8fafc;
+        --txt: #0f172a;
+        --muted: #475569;
+        --border: rgba(2,6,23,.08);
+        --shadow: 0 8px 24px rgba(2,6,23,.06);
+      }
     }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:'Questrial',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif;background:var(--bg);color:var(--txt);}
+    img{max-width:100%;display:block}
+    a{color:var(--accent);text-decoration:none;font-weight:600}
+    a:hover{text-decoration:underline}
+
+    .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+    .skip{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip:focus{left:16px;top:16px;width:auto;height:auto;background:var(--bg-elev);padding:10px 12px;border-radius:10px;border:1px solid var(--border)}
+
+    header{position:sticky;top:0;z-index:40;backdrop-filter:saturate(180%) blur(6px);background:rgba(10,15,28,.6);border-bottom:1px solid var(--border)}
+    @media (prefers-color-scheme: light){header{background:rgba(255,255,255,.7)}}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand img{width:40px;height:40px;border-radius:10px}
+    .brand .t{font-weight:800;letter-spacing:.2px}
+    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
+    nav a{color:var(--txt);opacity:.9}
+    nav a[aria-current="page"]{color:var(--accent)}
+
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding:56px 0 24px}
+    .hero h1{font-size:clamp(28px,5vw,48px);line-height:1.05;margin:0 0 12px}
+    .muted{color:var(--muted)}
+
+    .panel{background:var(--bg-elev);border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+
+    .cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:18px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px 16px;border-radius:12px;font-weight:800;background:var(--bg-elev);color:var(--txt);border:1px solid var(--border);box-shadow:var(--shadow);transition:transform .12s ease,filter .12s ease,background .12s ease}
+    .btn.primary{background:var(--accent);border:none;color:#fff}
+    .btn:hover{filter:brightness(1.06);transform:translateY(-1px)}
+    .btn:active{transform:translateY(0);filter:brightness(0.98);background:var(--accent-press)}
+    .btn:focus-visible{outline:0;box-shadow:0 0 0 4px var(--ring)}
+    .badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);border-radius:999px;padding:6px 10px;font-size:12px;background:var(--bg-elev)}
+
+    .phone{aspect-ratio:9/19;border:2px solid var(--border);border-radius:32px;overflow:hidden;box-shadow:var(--shadow)}
+    .phone .screen{height:100%;background:linear-gradient(180deg,rgba(147,51,234,.15),transparent 40%),
+                                   radial-gradient(60% 40% at 50% -10%, rgba(147,51,234,.25), transparent 60%),
+                                   url('assets/app-shot.png') center/cover no-repeat;}
+
+    .section{padding:48px 0}
+    .section h2{font-size:clamp(22px,4vw,32px);margin:0 0 12px}
+
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    @media (max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}}
+
+    .feature h3{margin:.2rem 0 .4rem;font-size:18px}
+    .feature p{margin:0;color:var(--muted)}
+
+    .logos{display:flex;gap:24px;align-items:center;overflow:auto;padding:12px}
+    .logos img{height:48px;filter:drop-shadow(0 8px 18px rgba(0,0,0,.25))}
+
+    .faq details{background:var(--bg-elev);border:1px solid var(--border);border-radius:12px;padding:14px 16px}
+    .faq details+details{margin-top:10px}
+    .faq summary{cursor:pointer;font-weight:700}
+
+    footer{border-top:1px solid var(--border);padding:28px 0;text-align:center;color:var(--muted)}
+
+    .accent-contrast{color:#fff}
+    @media (prefers-color-scheme: light){.accent-contrast{color:#111}}
   </style>
 </head>
 <body>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
   <header>
-    <div class="nav wrap">
+    <div class="wrap nav">
       <div class="brand" aria-label="Coléga">
-        <img src="assets/logo.png" alt="Logo do Coléga" />
-        <div class="t">Col<span style="color:#fff">é</span>ga</div>
+        <img src="assets/logo.png" width="40" height="40" alt="Logo do Coléga" />
+        <div class="t">Col<span class="accent-contrast">é</span>ga</div>
       </div>
+      <nav aria-label="Primária">
+        <ul>
+          <li><a href="#funcionalidades">Funcionalidades</a></li>
+          <li><a href="#universidades">Universidades</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#privacidade">Privacidade</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
-  <main class="wrap">
+  <main id="conteudo" class="wrap" tabindex="-1">
     <section class="hero" aria-labelledby="hero-title">
       <div>
-        <h1 id="hero-title">Col<span style="color:#fff">é</span>ga: seu assistente para a vida universitária</h1>
-        <p>Coléga é um app ágil pensado para estudantes. Consulte o cardápio do RU, acesse utilitários para as aulas e mantenha sua rotina acadêmica simples.</p>
+        <div class="badge" aria-label="Disponível gratuitamente"><span>🎓</span> Feito para estudantes</div>
+        <h1 id="hero-title">Col<span class="accent-contrast">é</span>ga: seu assistente para a vida universitária</h1>
+        <p class="muted">Coléga é um app ágil pensado para estudantes. Consulte o cardápio do RU, acesse utilitários para as aulas e mantenha sua rotina acadêmica simples.</p>
         <div class="cta" role="group" aria-label="Baixar o aplicativo">
           <a class="btn primary" href="https://apps.apple.com/br/app/col%C3%A9ga/id6751823852?l=en-GB" target="_blank" rel="noopener">Baixar no iOS</a>
-          <a class="btn primary" href="https://play.google.com/store/apps/details?id=PACKAGE.HERE" target="_blank" rel="noopener">Baixar no Android</a>
+          <a class="btn" href="https://play.google.com/store/apps/details?id=PACKAGE.HERE" target="_blank" rel="noopener" aria-describedby="android-note">Baixar no Android</a>
         </div>
+        <p id="android-note" class="muted" style="margin-top:8px">Substitua <code>PACKAGE.HERE</code> pelo ID real do pacote Android assim que publicar.</p>
+      </div>
+      <div class="phone" aria-hidden="true"><div class="screen"></div></div>
+    </section>
+
+    <section id="funcionalidades" class="section" aria-labelledby="feat-title">
+      <h2 id="feat-title">Por que usar o Coléga?</h2>
+      <div class="grid">
+        <article class="feature panel">
+          <h3>Cardápio do RU em 1 toque</h3>
+          <p>Veja o que tem no RU hoje e nos próximos dias, atualizado rapidamente e com baixo consumo de dados.</p>
+        </article>
+        <article class="feature panel">
+          <h3>Utilitários para aula</h3>
+          <p>Ferramentas leves para o dia a dia: timer, conversões, calculadoras básicas e mais, tudo offline.</p>
+        </article>
+        <article class="feature panel">
+          <h3>Organização simples</h3>
+          <p>Notas rápidas, lembretes e links úteis em um só lugar, sem complexidade.</p>
+        </article>
       </div>
     </section>
 
-    <section id="universities" class="section" aria-labelledby="uni-title">
+    <section id="universidades" class="section" aria-labelledby="uni-title">
       <h2 id="uni-title">Disponível nas seguintes universidades</h2>
-      <div class="carousel" aria-label="Universidades parceiras">
-        <div class="carousel-track">
-          <div class="slide"><img src="assets/universities/ufpr.png" alt="Logo da UFPR"></div>
+      <div class="panel" aria-label="Universidades parceiras">
+        <div class="logos" role="list">
+          <img role="listitem" src="assets/universities/ufpr.png" alt="UFPR">
+          <!-- Adicione mais logos aqui -->
         </div>
       </div>
     </section>
 
-    <section id="about" class="section" aria-labelledby="about-title">
+    <section id="sobre" class="section" aria-labelledby="about-title">
       <h2 id="about-title">Sobre & Contato</h2>
       <div class="panel">
-        <p><strong>Coléga</strong> é desenvolvido por Felipe Kleine Albers. Para dúvidas, feedback ou parcerias, escreva para <a href="mailto:colegaapps@gmail.com">colegaapps@gmail.com</a>.</p>
-        <p>Instagram: <a href="https://www.instagram.com/colegaapp/" target="_blank" rel="noopener">@colegaapp</a></p>
+        <p><strong>Coléga</strong> é desenvolvido por Felipe Kleine Albers. Para dúvidas, feedback ou parcerias, escreva para <a href="mailto:colegaapps@gmail.com">colegaapps@gmail.com</a> ou envie uma DM no Instagram <a href="https://www.instagram.com/colegaapp/" target="_blank" rel="noopener">@colegaapp</a>.</p>
       </div>
     </section>
 
-    <section id="privacy" class="section" aria-labelledby="privacy-title">
+    <section id="privacidade" class="section" aria-labelledby="privacy-title">
       <h2 id="privacy-title">Política de Privacidade</h2>
       <div class="panel">
-        <p><a href="https://fekleal.github.io/Colega-Privacy-/" target="_blank" rel="noopener">Leia a política de privacidade completa aqui</a></p>
+        <p><a href="https://fekleal.github.io/Colega-Privacy-/" target="_blank" rel="noopener">Leia a política de privacidade completa</a>.</p>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="wrap">© <span id="y"></span> Coléga. Feito para estudantes.</div>
+    <div class="wrap">© <span id="y"></span> Coléga. Feito para estudantes. · <a href="#sobre">Contato</a></div>
   </footer>
 
   <script>
-    // Ano no rodapé
+    // Ano dinâmico
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Marcar link ativo conforme hash
+    const markActive = () => {
+      document.querySelectorAll('nav a').forEach(a => a.removeAttribute('aria-current'));
+      const hash = location.hash;
+      if(!hash) return;
+      const active = document.querySelector(`nav a[href="${hash}"]`);
+      if(active) active.setAttribute('aria-current','page');
+    };
+    window.addEventListener('hashchange', markActive);
+    markActive();
   </script>
+
+  <noscript>Ative o JavaScript para a melhor experiência neste site.</noscript>
 </body>
 </html>
