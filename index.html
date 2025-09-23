@@ -65,9 +65,6 @@
     .brand{display:flex;gap:12px;align-items:center}
     .brand img{width:40px;height:40px;border-radius:10px}
     .brand .t{font-weight:800;letter-spacing:.2px}
-    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
-    nav a{color:var(--txt);opacity:.9}
-    nav a[aria-current="page"]{color:var(--accent)}
 
     .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding:56px 0 24px}
     .hero h1{font-size:clamp(28px,5vw,48px);line-height:1.05;margin:0 0 12px}
@@ -117,14 +114,6 @@
         <img src="assets/logo.png" width="40" height="40" alt="Logo do Coléga" />
         <div class="t">Col<span class="accent-contrast">é</span>ga</div>
       </div>
-      <nav aria-label="Primária">
-        <ul>
-          <li><a href="#funcionalidades">Funcionalidades</a></li>
-          <li><a href="#universidades">Universidades</a></li>
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#privacidade">Privacidade</a></li>
-        </ul>
-      </nav>
     </div>
   </header>
 
@@ -133,7 +122,7 @@
       <div>
         <div class="badge" aria-label="Disponível gratuitamente"><span>🎓</span> Feito para estudantes</div>
         <h1 id="hero-title">Col<span class="accent-contrast">é</span>ga: seu assistente para a vida universitária</h1>
-        <p class="muted">Coléga é um app ágil pensado para estudantes. Consulte o cardápio do RU, acesse utilitários para as aulas e mantenha sua rotina acadêmica simples.</p>
+        <p class="muted">Coléga é um app ágil pensado para estudantes. Consulte o cardápio do RU, controle suas faltas e provas!</p>
         <div class="cta" role="group" aria-label="Baixar o aplicativo">
           <a class="btn" href="https://apps.apple.com/br/app/col%C3%A9ga/id6751823852?l=en-GB" target="_blank" rel="noopener">Baixar no iOS</a>
           <a class="btn" href="https://play.google.com/store/apps/details?id=com.colegaapps.app&pcampaignid=web_share" target="_blank" rel="noopener">Baixar no Android</a>
@@ -150,12 +139,12 @@
           <p>Veja o que tem no RU hoje e nos próximos dias, atualizado rapidamente e com baixo consumo de dados.</p>
         </article>
         <article class="feature panel">
-          <h3>Utilitários para aula</h3>
-          <p>Ferramentas leves para o dia a dia: timer, conversões, calculadoras básicas e mais, tudo offline.</p>
+          <h3>Controle de Faltas</h3>
+          <p>Crie disicplinas, total de faltas por materia, local de aual e notificações de aviso nos horarío de aula!.</p>
         </article>
         <article class="feature panel">
-          <h3>Organização simples</h3>
-          <p>Notas rápidas, lembretes e links úteis em um só lugar, sem complexidade.</p>
+          <h3>Controle de Avaliações</h3>
+          <p>Notas rápidas, trabalhos e provas, sem complexidade.</p>
         </article>
       </div>
     </section>
@@ -192,17 +181,6 @@
   <script>
     // Ano dinâmico
     document.getElementById('y').textContent = new Date().getFullYear();
-
-    // Marcar link ativo conforme hash
-    const markActive = () => {
-      document.querySelectorAll('nav a').forEach(a => a.removeAttribute('aria-current'));
-      const hash = location.hash;
-      if(!hash) return;
-      const active = document.querySelector(`nav a[href="${hash}"]`);
-      if(active) active.setAttribute('aria-current','page');
-    };
-    window.addEventListener('hashchange', markActive);
-    markActive();
   </script>
 
   <noscript>Ative o JavaScript para a melhor experiência neste site.</noscript>
