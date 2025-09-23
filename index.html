@@ -50,7 +50,7 @@
       }
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;font-family:'Questrial',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif;background:var(--bg);color:var(--txt);}
+    html,body{margin:0;padding:0;font-family:'Questrial',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif;background:var(--bg);color:var(--txt);} 
     img{max-width:100%;display:block}
     a{color:var(--accent);text-decoration:none;font-weight:600}
     a:hover{text-decoration:underline}
@@ -76,8 +76,7 @@
     .panel{background:var(--bg-elev);border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
 
     .cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:18px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px 16px;border-radius:12px;font-weight:800;background:var(--bg-elev);color:var(--txt);border:1px solid var(--border);box-shadow:var(--shadow);transition:transform .12s ease,filter .12s ease,background .12s ease}
-    .btn.primary{background:var(--accent);border:none;color:#fff}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px 16px;border-radius:12px;font-weight:800;background:var(--accent);color:#fff;border:none;box-shadow:var(--shadow);transition:transform .12s ease,filter .12s ease,background .12s ease}
     .btn:hover{filter:brightness(1.06);transform:translateY(-1px)}
     .btn:active{transform:translateY(0);filter:brightness(0.98);background:var(--accent-press)}
     .btn:focus-visible{outline:0;box-shadow:0 0 0 4px var(--ring)}
@@ -136,10 +135,9 @@
         <h1 id="hero-title">Col<span class="accent-contrast">é</span>ga: seu assistente para a vida universitária</h1>
         <p class="muted">Coléga é um app ágil pensado para estudantes. Consulte o cardápio do RU, acesse utilitários para as aulas e mantenha sua rotina acadêmica simples.</p>
         <div class="cta" role="group" aria-label="Baixar o aplicativo">
-          <a class="btn primary" href="https://apps.apple.com/br/app/col%C3%A9ga/id6751823852?l=en-GB" target="_blank" rel="noopener">Baixar no iOS</a>
-          <a class="btn" href="https://play.google.com/store/apps/details?id=PACKAGE.HERE" target="_blank" rel="noopener" aria-describedby="android-note">Baixar no Android</a>
+          <a class="btn" href="https://apps.apple.com/br/app/col%C3%A9ga/id6751823852?l=en-GB" target="_blank" rel="noopener">Baixar no iOS</a>
+          <a class="btn" href="https://play.google.com/store/apps/details?id=com.colegaapps.app&pcampaignid=web_share" target="_blank" rel="noopener">Baixar no Android</a>
         </div>
-        <p id="android-note" class="muted" style="margin-top:8px">Substitua <code>PACKAGE.HERE</code> pelo ID real do pacote Android assim que publicar.</p>
       </div>
       <div class="phone" aria-hidden="true"><div class="screen"></div></div>
     </section>
